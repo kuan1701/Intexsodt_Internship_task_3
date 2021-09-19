@@ -60,10 +60,10 @@ public class Node {
 
         List<Node> mainNodeList = new ArrayList<>();
 
-        for (int i = 0; i < nodes.size(); i++) {
+        for (Node node1 : nodes) {
             // find objects without parents and put them into the created array
-            if (nodes.get(i).getParent_id() == null) {
-                mainNodeList.add(nodes.get(i));
+            if (node1.getParent_id() == null) {
+                mainNodeList.add(node1);
             }
 
             for (Node node : nodes) {
@@ -71,8 +71,8 @@ public class Node {
                 if (node.getParent_id() == null) continue;
 
                 // find which parent the object belongs to and add it to the parent's array
-                if (node.getParent_id().equals(nodes.get(i).getId())) {
-                    nodes.get(i).getChildren().add(node);
+                if (node.getParent_id().equals(node1.getId())) {
+                    node1.getChildren().add(node);
                 }
             }
         }
